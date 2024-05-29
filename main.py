@@ -1,12 +1,16 @@
-def print_hi(name):
+import asyncio
+from aiogram import Bot, Dispatcher
+from aiogram.types import  Message
 
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+bot = Bot(token= '5881506855:AAGzrrsifHuhx8HGgQbon10YCdyxjlpef0A')
+dp = Dispatcher()
 
+@dp.message()
+async def cmd_start(message: Message):
+    await message.answer('Привет!')
 
+async def main():
+    await dp.start_polling(bot)
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    asyncio.run(main())
