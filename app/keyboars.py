@@ -7,3 +7,7 @@ main = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text="Первая")],
                            resize_keyboard=True,
                            input_field_placeholder="ля-ля Тополя"
                            )
+
+get_number = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text="Отправить номер",
+                                                           request_contact=True)]],
+                                                           resize_keyboard=True)
