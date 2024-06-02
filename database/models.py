@@ -1,11 +1,11 @@
 # Тут  создана модель (тк ООП) или структура БД
-from sqlalchemy import BigInteger
+from sqlalchemy import BigInteger, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
 
-engine = create_async_engine(url='sqlite+aiosqlite:///db.sqlite3')
+engine = create_async_engine(url='sqlite+aiosqlite:///db.sqlite3', echo= True)
 
-# async_session = async_sessionmaker(engine)
+async_session = async_sessionmaker(engine)
 
 
 class Base(AsyncAttrs, DeclarativeBase):
@@ -17,6 +17,7 @@ class User(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     tg_id = mapped_column(BigInteger)
+    name: Mapped[str] = mapped_column(String(25))
 
 
 async def async_main():
