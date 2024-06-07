@@ -21,7 +21,7 @@ class Register(StatesGroup):
 @router.message(CommandStart())
 async def cmd_start(message: Message):
     await message.answer("Привет", reply_markup=kb.main)
-    await rq.set_user(message.from_user.id)
+    await rq.set_user(message.from_user.id, message.from_user.first_name)
 
 
 @router.message(Command('help'))
