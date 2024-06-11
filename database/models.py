@@ -19,6 +19,10 @@ class User(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     tg_id = mapped_column(BigInteger)
     name: Mapped[str] = mapped_column(String(25))
+    phone : Mapped[str] = mapped_column(String(15))
+    sell_buy: Mapped[int] = mapped_column
+    selling_name: Mapped[str] = mapped_column(String(50))
+
 
 
 async def async_main():
