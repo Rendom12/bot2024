@@ -19,10 +19,20 @@ class User(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     tg_id = mapped_column(BigInteger)
     name: Mapped[str] = mapped_column(String(25))
-    phone : Mapped[str] = mapped_column(String(15))
     sell_buy: Mapped[int] = mapped_column
     selling_name: Mapped[str] = mapped_column(String(50))
-
+    year: Mapped[int] = mapped_column
+    has_documents: Mapped[str] = mapped_column(String(25))
+    engine_type: Mapped[str] = mapped_column(String(25))
+    working_width: Mapped[str] = mapped_column(String(25))
+    condition: Mapped[str] = mapped_column(String(25))
+    inspection_location: Mapped[str] = mapped_column(String(50))
+    payment_method: Mapped[str] = mapped_column(String(50))
+    company_details: Mapped[str] = mapped_column(String(50))
+    self_loading: Mapped[str] = mapped_column(String(50))
+    photos_and_video: Mapped[str] = mapped_column(String(50))
+    commission_rate: Mapped[str] = mapped_column(String(50))
+    phone : Mapped[str] = mapped_column(String(15))
 
 
 async def async_main():

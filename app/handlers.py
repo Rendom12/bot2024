@@ -1,6 +1,6 @@
 # здесь будут хранитьс обработчики @dp
 
-from aiogram import F, Router
+from aiogram import F, Router, html
 from aiogram.types import Message, ReplyKeyboardRemove
 from aiogram.filters import CommandStart, Command
 from aiogram.fsm.state import StatesGroup, State
@@ -37,10 +37,10 @@ async def button1_handler(message: Message, state: FSMContext):
 @router.message(Form.selling_name)
 async def process_selling_name(message: Message, state: FSMContext):
     await state.update_data(selling_name=message.text)
-    # await message.answer(
-    #     f"Какой год производства  {html.quote(str(message.text))}?")
+    await message.answer(
+        f"Какой год производства  {html.quote(str(message.text))}?")
     await state.set_state(Form.name)
-    await message.answer("Как Вас зовут?? ", reply_markup=ReplyKeyboardRemove())
+    # await message.answer("Как Вас зовут?? ", reply_markup=ReplyKeyboardRemove())
 
 
 
